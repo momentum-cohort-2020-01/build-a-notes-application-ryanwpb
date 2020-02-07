@@ -30,7 +30,7 @@ getAllNotes().then(renderNoteList);
 function deleteThisNote(noteId) {
   return fetch("http://localhost:3000/notes/" + noteId, {
     method: "DELETE"
-  }).then(response => response.json());
+  });
 }
 
 function deleteNote() {
