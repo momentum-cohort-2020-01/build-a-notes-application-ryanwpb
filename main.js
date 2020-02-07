@@ -16,7 +16,7 @@ function createNotesHTML(notes) {
 getAllNotes().then(createNotesHTML);
 
 function createNoteHTML(note) {
-  return `<li data-note-id="${note.id}">${note.note}</li> <button class="delete">Delete</button>`;
+  return `<li data-note-id="${note.id}">${note.note} <button class="delete">Delete</button></li>`;
 }
 
 function renderNoteList(notes) {
@@ -27,10 +27,21 @@ function renderNoteList(notes) {
 
 getAllNotes().then(renderNoteList);
 
+function deleteThisNote(noteId) {
+  return fetch("http://localhost:3000/notes/" + noteId, {
+    method: "DELETE"
+  }).then(response => response.json());
+}
+
 function deleteNote() {
-  li = document.querySelectorAll("li");
-  li.addEventListener("click", function(e) {
-    console.log(e.target);
+  let noteSection = document.querySelector("#notes");
+  noteSection.addEventListener("click", function(e) {
+    if (e.target.matches(".delete")) {
+      let noteId = e.target.parentElement.dataset.noteId;
+      console.log(noteId);
+      e.target.parentElement.classList.add("delete-note");
+      deleteThisNote(noteId);
+    }
   });
 }
 
