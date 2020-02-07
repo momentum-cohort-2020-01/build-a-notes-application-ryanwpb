@@ -6,30 +6,71 @@
   font-family: "Oswald", sans-serif;
 }
 
-form {
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 1rem;
+body {
+  background-image: url(images/happy.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 
+form {
+  background: #fff;
+  border-radius: 0.25rem;
+  max-width: 440px;
+  margin: 3rem 2rem;
+  padding: 2rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+form h1 {
+  font-weight: 400;
+  color: #484848;
+  margin-bottom: 1rem;
+}
+
+ul#notes-list {
+  margin: 0 2rem;
+  max-width: 440px;
+  list-style: none;
+}
+li {
+  font-size: 18px;
+  color: #484848;
+}
+li:not(:last-child) {
+  margin-bottom: 1rem;
+}
 input {
   display: block;
   width: 100%;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 200;
   border-radius: 0.25rem;
-  border: solid 1px #ccc;
+  border: 1px solid #ebebeb;
   color: #484848;
+  margin: 1rem 0;
+  padding: 0.5rem;
 }
 
 button#note-submit {
   margin: 1rem 0;
   width: 100%;
-  padding: 0.2rem;
+  padding: 0.5rem;
   border: none;
   background: #ff5a5f;
   color: #fff;
   font-size: 18px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button.delete {
+  background: #ff5a5f;
+  padding: 0.2rem 1rem;
+  border: #ff5a5f;
+  color: #fff;
+  font-size: 16px;
   border-radius: 0.25rem;
   cursor: pointer;
 }

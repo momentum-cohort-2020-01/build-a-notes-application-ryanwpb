@@ -38,7 +38,6 @@ function deleteNote() {
   noteSection.addEventListener("click", function(e) {
     if (e.target.matches(".delete")) {
       let noteId = e.target.parentElement.dataset.noteId;
-      console.log(noteId);
       e.target.parentElement.classList.add("delete-note");
       deleteThisNote(noteId);
     }
@@ -50,11 +49,10 @@ deleteNote();
 let noteSubmit = document.querySelector("#new-note-form");
 noteSubmit.addEventListener("submit", event => {
   event.preventDefault();
-  console.log(event);
   const noteTextField = document.querySelector("#note-text");
   const noteText = noteTextField.value;
   noteTextField.value = "";
-  postNewNote(noteText).then(renderNewNote);
+  postNewNote(noteText).then();
 });
 
 function postNewNote(noteText) {
