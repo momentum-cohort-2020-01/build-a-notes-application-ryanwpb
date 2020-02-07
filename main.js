@@ -6,6 +6,7 @@ function getAllNotes() {
     .then(notes => {
       // Prints result from `response.json()` in getRequest
       //and throw the data into our empty object
+      console.log(notes);
       return notes;
     });
 }
@@ -21,13 +22,13 @@ function createNotesHTML(notes) {
 }
 
 function createNoteHTML(note) {
-  console.log(note);
-  return `<li data-todo-id="${note.id}">${note.note}</li>`;
+  console.log("here ", note.id);
+  return `<li id="${note.id}">${note.note}</li>`;
 }
 
 function renderNoteList(note) {
   const noteHTML = createNoteHTML(note);
-  const noteList = document.querySelector("#note-list");
+  const noteList = document.querySelector("#notes-list");
   noteList.insertAdjacentHTML("beforeend", noteHTML);
 }
 

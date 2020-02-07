@@ -7,3 +7,32 @@
 body {
   font-family: "Oswald", sans-serif;
 }
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Oswald";
+  font-weight: 500;
+  border-radius: 0.25rem;
+  border: solid 1px #ccc;
+  color: #484848;
+}
+
+button#note-submit {
+  margin: 1rem 0;
+  width: 100%;
+  padding: 0.2rem;
+  border: none;
+  background: #ff5a5f;
+  font-family: "Oswald";
+  color: #fff;
+  font-size: 18px;
+  border-radius: 0.25rem;
+}
