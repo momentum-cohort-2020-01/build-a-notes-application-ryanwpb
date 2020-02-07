@@ -5,6 +5,7 @@ function getAllNotes() {
 }
 
 function createNotesHTML(notes) {
+  console.log(notes);
   let notesStr = '<ul id="notes-list">';
   for (const note of notes) {
     notesStr += createNoteHTML(note);
@@ -16,7 +17,7 @@ function createNotesHTML(notes) {
 getAllNotes().then(createNotesHTML);
 
 function createNoteHTML(note) {
-  return `<li data-note-id="${note.id}">${note.note} <button class="delete">Delete</button></li>`;
+  return `<li data-note-id="${note.id}">${note.title}<li data-note-id="${note.id}">${note.note} <button class="delete">Delete</button></li>`;
 }
 
 function renderNoteList(notes) {
@@ -49,17 +50,21 @@ deleteNote();
 let noteSubmit = document.querySelector("#new-note-form");
 noteSubmit.addEventListener("submit", event => {
   event.preventDefault();
+  const titleTextField = document.querySelector("#note-title");
   const noteTextField = document.querySelector("#note-text");
+  const titleText = titleTextField.value;
   const noteText = noteTextField.value;
+  titleText.value = "";
   noteTextField.value = "";
-  postNewNote(noteText).then();
+  postNewNote(titleText, noteText).then();
 });
 
-function postNewNote(noteText) {
+function postNewNote(titleText, noteText) {
   return fetch("http://localhost:3000/notes/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
+      title: titleText,
       note: noteText,
       done: false,
       created: moment().format()
