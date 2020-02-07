@@ -2,9 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
+  letter-spacing: 1px;
   font-family: "Oswald", sans-serif;
 }
 
@@ -18,7 +16,6 @@ input {
   display: block;
   width: 100%;
   font-size: 18px;
-  font-family: "Oswald";
   font-weight: 500;
   border-radius: 0.25rem;
   border: solid 1px #ccc;
@@ -31,7 +28,6 @@ button#note-submit {
   padding: 0.2rem;
   border: none;
   background: #ff5a5f;
-  font-family: "Oswald";
   color: #fff;
   font-size: 18px;
   border-radius: 0.25rem;
