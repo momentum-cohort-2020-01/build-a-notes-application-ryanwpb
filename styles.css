@@ -29,6 +29,10 @@ form h1 {
   margin-bottom: 1rem;
 }
 
+label {
+  color: #484848;
+}
+
 ul#notes-list {
   margin: 0 2rem;
   max-width: 440px;
