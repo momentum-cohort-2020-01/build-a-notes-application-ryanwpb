@@ -48,7 +48,6 @@ function postNewNote(noteText) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      note: id,
       note: noteText,
       done: false,
       created: moment().format()
