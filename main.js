@@ -1,34 +1,27 @@
 function getAllNotes() {
   return fetch("http://localhost:3000/notes/", {
     method: "GET"
-  })
-    .then(response => response.json())
-    .then(notes => {
-      // Prints result from `response.json()` in getRequest
-      //and throw the data into our empty object
-      console.log(notes);
-      return notes;
-    });
+  }).then(response => response.json());
 }
-getAllNotes().then(createNotesHTML);
 
 function createNotesHTML(notes) {
-  let notessStr = '<ul id="notes-list">';
-  for (let note of notes) {
-    notessStr += note.body;
+  let notesStr = '<ul id="notes-list">';
+  for (const note of notes) {
+    notesStr += createNoteHTML(note);
   }
-  notessStr += "</ul>";
-  return notessStr;
+  notesStr += "</ul>";
+  return notesStr;
 }
+
+getAllNotes().then(createNotesHTML);
 
 function createNoteHTML(note) {
-  console.log("here ", note.id);
-  return `<li id="${note.id}">${note.note}</li>`;
+  return `<li data-note-id="${note.id}">${note.note}</li>`;
 }
 
-function renderNoteList(note) {
-  const noteHTML = createNoteHTML(note);
-  const noteList = document.querySelector("#notes-list");
+function renderNoteList(notes) {
+  const noteHTML = createNotesHTML(notes);
+  const noteList = document.querySelector("#notes");
   noteList.insertAdjacentHTML("beforeend", noteHTML);
 }
 
