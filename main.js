@@ -16,7 +16,7 @@ function createNotesHTML(notes) {
 getAllNotes().then(createNotesHTML);
 
 function createNoteHTML(note) {
-  return `<li data-note-id="${note.id}">${note.note}</li>`;
+  return `<li data-note-id="${note.id}">${note.note}</li> <button class="delete">Delete</button>`;
 }
 
 function renderNoteList(notes) {
@@ -26,6 +26,15 @@ function renderNoteList(notes) {
 }
 
 getAllNotes().then(renderNoteList);
+
+function deleteNote() {
+  li = document.querySelectorAll("li");
+  li.addEventListener("click", function(e) {
+    console.log(e.target);
+  });
+}
+
+deleteNote();
 
 let noteSubmit = document.querySelector("#new-note-form");
 noteSubmit.addEventListener("submit", event => {
