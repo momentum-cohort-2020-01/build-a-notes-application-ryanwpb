@@ -46,6 +46,7 @@ label {
 
 ul {
   list-style: none;
+  position: relative;
 }
 
 li {
@@ -55,6 +56,16 @@ li {
 
 li:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+button.edit {
+  position: absolute;
+  right: 15%;
+}
+
+button.delete {
+  position: absolute;
+  right: 0;
 }
 
 input {
