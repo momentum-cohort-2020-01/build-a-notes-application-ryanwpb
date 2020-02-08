@@ -34,18 +34,29 @@ label {
   color: #484848;
 }
 
-ul#notes-list {
+#notes {
   margin: 0 2rem;
   max-width: 440px;
   list-style: none;
+  background: #fff;
+  opacity: 0.8;
+  padding: 2rem;
+  border-radius: 0.25rem;
 }
+
+ul {
+  list-style: none;
+}
+
 li {
   font-size: 18px;
   color: #484848;
 }
+
 li:not(:last-child) {
   margin-bottom: 1rem;
 }
+
 input {
   display: block;
   width: 100%;
@@ -70,7 +81,7 @@ button#note-submit {
   cursor: pointer;
 }
 
-button.delete {
+button {
   background: #ff5a5f;
   padding: 0.2rem 1rem;
   border: #ff5a5f;
@@ -78,4 +89,16 @@ button.delete {
   font-size: 16px;
   border-radius: 0.25rem;
   cursor: pointer;
+}
+
+.fa,
+.far,
+.fas {
+  font-family: "Font Awesome 5 Pro";
+  color: #ff5a5f;
+  font-size: 20px;
+}
+
+button:not(:last-child) {
+  margin: 0 2rem;
 }

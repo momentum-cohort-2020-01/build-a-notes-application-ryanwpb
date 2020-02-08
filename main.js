@@ -17,7 +17,7 @@ function createNotesHTML(notes) {
 getAllNotes().then(createNotesHTML);
 
 function createNoteHTML(note) {
-  return `<li data-note-id="${note.id}">${note.title}<li data-note-id="${note.id}">${note.note} <button class="delete">Delete</button></li>`;
+  return `<li data-note-id="${note.id}">${note.title}<li data-note-id="${note.id}">${note.note} <button class="edit">Edit</button><button class="delete">Delete</button></li>`;
 }
 
 function renderNoteList(notes) {
@@ -46,6 +46,25 @@ function deleteNote() {
 }
 
 deleteNote();
+
+function editThisNote(noteId) {
+  return fetch("http://localhost:3000/notes/" + noteId, {
+    method: "PATCH"
+  });
+}
+
+function editNote() {
+  let noteSection = document.querySelector("#notes");
+  noteSection.addEventListener("click", function(e) {
+    if (e.target.matches(".edit")) {
+      let noteId = e.target.parentElement.dataset.noteId;
+      e.target.parentElement.classList.add("edit-note");
+      editThisNote(noteId);
+    }
+  });
+}
+
+editNote();
 
 let noteSubmit = document.querySelector("#new-note-form");
 noteSubmit.addEventListener("submit", event => {
