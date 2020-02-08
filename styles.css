@@ -91,14 +91,6 @@ button {
   cursor: pointer;
 }
 
-.fa,
-.far,
-.fas {
-  font-family: "Font Awesome 5 Pro";
-  color: #ff5a5f;
-  font-size: 20px;
-}
-
 button:not(:last-child) {
   margin: 0 2rem;
 }
