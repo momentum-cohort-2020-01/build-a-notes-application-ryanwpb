@@ -47,8 +47,8 @@ function deleteNote() {
 
 deleteNote();
 
-function editThisNote(noteId) {
-  return fetch("http://localhost:3000/notes/" + noteId, {
+function editThisNote(noteId, noteText) {
+  return fetch("http://localhost:3000/notes/" + noteId + noteText, {
     method: "PATCH"
   });
 }
@@ -57,9 +57,10 @@ function editNote() {
   let noteSection = document.querySelector("#notes");
   noteSection.addEventListener("click", function(e) {
     if (e.target.matches(".edit")) {
+      console.log(e.target);
       let noteId = e.target.parentElement.dataset.noteId;
       e.target.parentElement.classList.add("edit-note");
-      editThisNote(noteId);
+      editThisNote(noteId, noteText);
     }
   });
 }
@@ -69,6 +70,7 @@ editNote();
 let noteSubmit = document.querySelector("#new-note-form");
 noteSubmit.addEventListener("submit", event => {
   event.preventDefault();
+  let notesArea = document.querySelector("#notes");
   const titleTextField = document.querySelector("#note-title");
   const noteTextField = document.querySelector("#note-text");
   const titleText = titleTextField.value;
