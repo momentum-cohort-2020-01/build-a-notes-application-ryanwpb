@@ -47,8 +47,8 @@ function deleteNote() {
 
 deleteNote();
 
-function editThisNote(noteId, noteText) {
-  return fetch("http://localhost:3000/notes/" + noteId + noteText, {
+function editThisNote(noteId, editValue) {
+  return fetch("http://localhost:3000/notes/" + noteId, {
     method: "PATCH"
   });
 }
@@ -57,10 +57,13 @@ function editNote() {
   let noteSection = document.querySelector("#notes");
   noteSection.addEventListener("click", function(e) {
     if (e.target.matches(".edit")) {
-      console.log(e.target);
+      e.preventDefault();
       let noteId = e.target.parentElement.dataset.noteId;
       e.target.parentElement.classList.add("edit-note");
-      editThisNote(noteId, noteText);
+      let editInput = document.createElement("input");
+      e.target.parentElement.appendChild(editInput);
+      let editValue = editInput.value;
+      editThisNote(noteId, editValue);
     }
   });
 }
